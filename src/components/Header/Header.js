@@ -7,10 +7,8 @@ import logoSVG from "../../assets/logo.svg";
 const Header = () => {
   return (
     <Fragment>
-      <header>
-        <div>
-          <img src={logoSVG} alt="Logo" />
-        </div>
+      <header className={classes.header}>
+        <img className={classes.logo} src={logoSVG} alt="Logo" />
       </header>
     </Fragment>
   );

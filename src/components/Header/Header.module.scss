@@ -1,0 +1,21 @@
+$desktop: 769px;
+
+.header {
+    display: flex;
+    justify-content: center;
+    padding-top: 35px;
+
+    @media screen and (min-width: $desktop) {
+        padding-top: 32px;
+    }
+}
+
+.logo {
+    max-width: 222px;
+    width: 100%;
+
+    @media screen and (min-width: $desktop) {
+        max-width: unset;
+        width: unset;
+    }
+}

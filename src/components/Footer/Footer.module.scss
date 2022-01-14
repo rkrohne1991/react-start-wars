@@ -1,0 +1,19 @@
+$desktop: 769px;
+
+.footer {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    color: #999;
+    padding-bottom: 27px;
+
+    @media screen and (min-width: $desktop) {
+        padding-bottom: 29px;
+    }
+
+    p {
+        margin: 0;
+    }
+}
