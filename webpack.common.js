@@ -20,7 +20,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        // test: /\.m?js$/,
+        test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader",
@@ -40,6 +41,17 @@ module.exports = {
           },
           {
             loader: "sass-loader",
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "svg-url-loader",
+            options: {
+              limit: 10000,
+            },
           },
         ],
       },
