@@ -4,6 +4,7 @@ $desktop: 769px;
     display: flex;
     justify-content: center;
     padding-top: 35px;
+    padding-bottom: 8px;
 
     @media screen and (min-width: $desktop) {
         padding-top: 32px;

@@ -1,0 +1,11 @@
+$desktop: 769px;
+
+.movies-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 20px;
+
+    @media screen and (min-width: $desktop) {
+        padding: 0 30px;
+    }
+}
