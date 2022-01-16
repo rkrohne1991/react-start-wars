@@ -3,13 +3,12 @@ import Movie from "../Movie/Movie";
 
 import classes from "./MoviesList.module.scss";
 
-const MoviesList = () => {
+const MoviesList = (props) => {
   return (
     <ul className={classes["movies-list"]}>
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
+      {props.films.map((film) => (
+        <Movie key={film.episode_id} title={film.title} />
+      ))}
     </ul>
   );
 };
