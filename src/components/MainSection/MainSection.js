@@ -8,6 +8,7 @@ import {
 } from "@apollo/client";
 import { RestLink } from "apollo-link-rest";
 
+import loaderSVG from "../../assets/loader.svg";
 import MoviesList from "../MoviesList/MoviesList";
 import classes from "./MainSection.module.scss";
 
@@ -35,11 +36,19 @@ const Content = () => {
   // console.log(data);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className={classes["loader-container"]}>
+        <img src={loaderSVG} alt="Loader" />
+      </div>
+    );
   }
 
   if (error) {
-    return <p>Something went wrong! {error}</p>;
+    return (
+      <div className={classes["loader-container"]}>
+        <div>Something went wrong! {error}</div>
+      </div>
+    );
   }
 
   return <MoviesList films={data.films.results} />;
