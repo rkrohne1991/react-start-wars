@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import arrowOpen from "../../assets/arrow-open.svg";
 import arrowClose from "../../assets/arrow-close.svg";
 import classes from "./Movie.module.scss";
+import MovieTable from "../MovieTable/MovieTable";
 
 const Movie = (props) => {
   const [contentIsActive, setContentIsActive] = useState(false);
 
   const toggleContentHandler = () => {
     setContentIsActive(!contentIsActive);
-    console.log("clicked");
+    // console.log("clicked");
   };
 
   const btnClasses = `${classes["movie__button"]} ${
@@ -29,7 +30,9 @@ const Movie = (props) => {
         </button>
       </div>
       {contentIsActive && (
-        <div className={classes["movie__content"]}>Movie content</div>
+        <div className={classes["movie__content"]}>
+          <MovieTable planets={props.planets} />
+        </div>
       )}
     </li>
   );

@@ -7,7 +7,11 @@ const MoviesList = (props) => {
   return (
     <ul className={classes["movies-list"]}>
       {props.films.map((film) => (
-        <Movie key={film.episode_id} title={film.title} />
+        <Movie
+          key={film.episode_id}
+          title={film.title}
+          planets={film.planets}
+        />
       ))}
     </ul>
   );
