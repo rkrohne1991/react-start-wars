@@ -1,0 +1,52 @@
+$desktop: 769px;
+
+.add-movie {
+    &__section {
+        margin-top: 32px;
+        padding: 0 20px 24px;
+
+        @media screen and (min-width: $desktop) {
+            padding: 0 30px 24px;
+        }
+    }
+
+    &__container {
+        background-color: #fff;
+        display: inline-block;
+        width: 100%;
+        margin: 8px 0;
+        border-radius: 4px;
+        box-shadow: 0px 2px 1px rgba(196, 196, 196, 0.2);
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 14.5px 15px;
+        box-shadow: 0px 4px 12px rgb(224 230 238 / 50%);
+        border-radius: 4px;
+    }
+
+    &__title {
+        font-size: 16px;
+        line-height: 19px;
+        font-weight: 700;
+        color: #00687F;
+    }
+
+    &__button {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &-active {
+            padding: 0;
+        }
+    }
+
+}
