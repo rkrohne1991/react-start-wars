@@ -1,6 +1,11 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 
+import Table from "react-bootstrap/Table";
+import classes from "./MovieTable.module.scss";
+import triangleUp from "../../assets/triangle-up.svg";
+import triangleDown from "../../assets/triangle-down.svg";
+
 const MovieTable = (props) => {
   const GET_PLANETS = gql`
     query GetPlanets {
@@ -32,17 +37,68 @@ const MovieTable = (props) => {
     });
   }
 
+  const sortingArrows = (
+    <div className={classes["movie-table__sorting"]}>
+      <img src={triangleUp} alt="Sort ASC" />
+      <img src={triangleDown} alt="Sort ASC" />
+    </div>
+  );
+
   return (
-    <table>
+    <Table className={classes["movie-table"]} hover responsive="md">
       <thead>
         <tr>
-          <th>Planet Name</th>
-          <th>Rotation period</th>
-          <th>Orbital period</th>
-          <th>Diameter</th>
-          <th>Climate</th>
-          <th>Surface water</th>
-          <th>Population</th>
+          <th>
+            <div className={classes["movie-table__column-box"]}>
+              <span>Planet Name</span>
+              {sortingArrows}
+            </div>
+          </th>
+          <th>
+            <div className={classes["movie-table__column-box"]}>
+              <span>
+                Rotation <br />
+                period
+              </span>
+              {sortingArrows}
+            </div>
+          </th>
+          <th>
+            <div className={classes["movie-table__column-box"]}>
+              <span>
+                Orbital <br />
+                period
+              </span>
+              {sortingArrows}
+            </div>
+          </th>
+          <th>
+            <div className={classes["movie-table__column-box"]}>
+              <span>Diameter</span>
+              {sortingArrows}
+            </div>
+          </th>
+          <th>
+            <div className={classes["movie-table__column-box"]}>
+              <span>Climate</span>
+              {sortingArrows}
+            </div>
+          </th>
+          <th>
+            <div className={classes["movie-table__column-box"]}>
+              <span>
+                Surface <br />
+                water
+              </span>
+              {sortingArrows}
+            </div>
+          </th>
+          <th>
+            <div className={classes["movie-table__column-box"]}>
+              <span>Population</span>
+              {sortingArrows}
+            </div>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -64,7 +120,7 @@ const MovieTable = (props) => {
             </tr>
           ))}
       </tbody>
-    </table>
+    </Table>
   );
 };
 
