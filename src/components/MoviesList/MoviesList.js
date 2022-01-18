@@ -10,6 +10,7 @@ const MoviesList = (props) => {
   const addedMovie = (data) => {
     const addMovies = [...movies, data];
     setMovies(addMovies);
+    localStorage.setItem("Movies", JSON.stringify(addMovies));
   };
 
   return (

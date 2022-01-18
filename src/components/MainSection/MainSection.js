@@ -14,25 +14,35 @@ const GET_FILMS = gql`
 `;
 
 const Content = () => {
-  const { loading, error, data } = useQuery(GET_FILMS);
+  if (!localStorage.getItem("Movies")) {
+    const { loading, error, data } = useQuery(GET_FILMS);
 
-  if (loading) {
-    return (
-      <div className={classes["loader-container"]}>
-        <img src={loaderSVG} alt="Loader" />
-      </div>
-    );
+    if (loading) {
+      return (
+        <div className={classes["loader-container"]}>
+          <img src={loaderSVG} alt="Loader" />
+        </div>
+      );
+    }
+
+    if (error) {
+      return (
+        <div className={classes["loader-container"]}>
+          <div>Something went wrong! {error}</div>
+        </div>
+      );
+    }
+
+    localStorage.setItem("Movies", JSON.stringify(data.films.results));
+
+    return <MoviesList films={data.films.results} />;
+  } else {
+    const storage = localStorage.getItem("Movies");
+    const jsonObject = JSON.parse(storage);
+    // console.log(jsonObject);
+
+    return <MoviesList films={jsonObject} />;
   }
-
-  if (error) {
-    return (
-      <div className={classes["loader-container"]}>
-        <div>Something went wrong! {error}</div>
-      </div>
-    );
-  }
-
-  return <MoviesList films={data.films.results} />;
 };
 
 const MainSection = () => {
