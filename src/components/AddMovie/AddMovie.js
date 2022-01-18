@@ -5,7 +5,7 @@ import arrowOpen from "../../assets/arrow-open.svg";
 import arrowClose from "../../assets/arrow-close.svg";
 import AddMovieContent from "../AddMovieContent/AddMovieContent";
 
-const AddMovie = () => {
+const AddMovie = (props) => {
   const [contentIsActive, setContentIsActive] = useState(false);
 
   const toggleContentHandler = () => {
@@ -17,7 +17,8 @@ const AddMovie = () => {
   }`;
 
   const addMovieHandler = (movie) => {
-    console.log(movie);
+    props.onAddedMovie(movie);
+    setContentIsActive(false);
   };
 
   return (
@@ -35,7 +36,7 @@ const AddMovie = () => {
         </div>
         {/* {contentIsActive && (
           <div className={classes["add-movie__content"]}>
-            <AddMovieContent />
+            <AddMovieContent onAddMovie={addMovieHandler} />
           </div>
         )} */}
         <div className={classes["add-movie__content"]}>

@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import AddMovie from "../AddMovie/AddMovie";
 import Movie from "../Movie/Movie";
 
 import classes from "./MoviesList.module.scss";
 
 const MoviesList = (props) => {
+  const [movies, setMovies] = useState(props.films);
+
+  const addedMovie = (data) => {
+    const addMovies = [...movies, data];
+    setMovies(addMovies);
+  };
+
   return (
     <section className={classes["movies-section"]}>
       <ul className={classes["movies-list"]}>
-        {props.films.map((film) => (
+        {movies.map((film) => (
           <Movie
             key={film.episode_id}
             title={film.title}
@@ -16,7 +23,7 @@ const MoviesList = (props) => {
           />
         ))}
       </ul>
-      <AddMovie />
+      <AddMovie onAddedMovie={addedMovie} />
     </section>
   );
 };

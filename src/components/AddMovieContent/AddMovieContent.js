@@ -71,18 +71,19 @@ const AddMovieContent = (props) => {
     }
 
     const movie = {
-      key: newId(),
       title: movieTitleValue,
+      episode_id: parseInt(newId()),
       planet: [planetNameValue],
     };
 
-    console.log(movie);
-
+    props.onAddMovie(movie);
     resetMovieTitle();
     resetPlanetName();
-
-    // props.onAddMovie(movie);
   };
+
+  const btnClasses = `${classes["form__button"]} ${
+    !formIsValid ? classes["form__button-disabled"] : ""
+  }`;
 
   return (
     <form className={classes.form} onSubmit={submitHandler}>
@@ -117,7 +118,9 @@ const AddMovieContent = (props) => {
         )}
       </div>
       <div className={classes["form__actions"]}>
-        <button disabled={!formIsValid}>Add Movie</button>
+        <button className={btnClasses} disabled={!formIsValid}>
+          Add Movie
+        </button>
       </div>
     </form>
   );

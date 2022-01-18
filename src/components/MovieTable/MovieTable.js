@@ -5,6 +5,7 @@ import Table from "react-bootstrap/Table";
 import classes from "./MovieTable.module.scss";
 import triangleUp from "../../assets/triangle-up.svg";
 import triangleDown from "../../assets/triangle-down.svg";
+import loaderSVG from "../../assets/loader.svg";
 
 const MovieTable = (props) => {
   const GET_PLANETS = gql`
@@ -17,6 +18,7 @@ const MovieTable = (props) => {
 
   const { loading, error, data } = useQuery(GET_PLANETS);
   let filterPlanetResults = [];
+  let planets = props.planets;
 
   if (error) {
     // to do: Hide table and display error message
@@ -30,8 +32,13 @@ const MovieTable = (props) => {
     data.planets.results &&
     data.planets.results.length > 0
   ) {
+    if (planets == null) {
+      // to be fixed
+      planets = [];
+    }
+
     filterPlanetResults = data.planets.results.filter((obj) => {
-      return props.planets.some((value) => {
+      return planets.some((value) => {
         return obj.url === value;
       });
     });
@@ -104,7 +111,22 @@ const MovieTable = (props) => {
       <tbody>
         {loading && (
           <tr>
-            <td>Loading...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <div className={classes["loader-container"]}>
+                <img src={loaderSVG} alt="Loader" />
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        )}
+        {filterPlanetResults.length === 0 && (
+          <tr>
+            <td>No results... :(</td>
           </tr>
         )}
         {filterPlanetResults.length > 0 &&

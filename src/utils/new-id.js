@@ -1,6 +1,4 @@
-let lastId = 0;
-
-export default (prefix = "id") => {
-  lastId++;
-  return `${prefix}${lastId}`;
+export default () => {
+  const random = Math.floor(Math.random() * 100) + 99;
+  return `${random}`;
 };

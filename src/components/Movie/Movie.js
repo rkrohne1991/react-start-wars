@@ -10,7 +10,6 @@ const Movie = (props) => {
 
   const toggleContentHandler = () => {
     setContentIsActive(!contentIsActive);
-    // console.log("clicked");
   };
 
   const btnClasses = `${classes["movie__button"]} ${

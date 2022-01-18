@@ -43,23 +43,28 @@ $desktop: 769px;
         margin-top: 30px;
         display: flex;
         justify-content: end;
+    }
 
-        button {
-            font-size: 12px;
-            line-height: 16px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            color: #fff;
-            background: #1BA1BE;
-            border: none;
-            border-radius: 4px;
-            width: 100%;
-            height: 33px;
-            cursor: pointer;
+    &__button {
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: #fff;
+        background: #1BA1BE;
+        border: none;
+        border-radius: 4px;
+        width: 100%;
+        height: 33px;
+        cursor: pointer;
 
-            @media screen and (min-width: $desktop) {
-                width: 160px;
-            }
+        &-disabled {
+            cursor: not-allowed;
+            pointer-events: all;
+        }
+
+        @media screen and (min-width: $desktop) {
+            width: 160px;
         }
     }
 
