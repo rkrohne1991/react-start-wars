@@ -19,7 +19,7 @@ const MovieTable = (props) => {
   let filterPlanetResults = [];
 
   if (error) {
-    // to do:
+    // to do: Hide table and display error message
   }
 
   if (

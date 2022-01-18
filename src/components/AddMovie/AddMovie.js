@@ -10,7 +10,6 @@ const AddMovie = () => {
 
   const toggleContentHandler = () => {
     setContentIsActive(!contentIsActive);
-    // console.log("clicked");
   };
 
   const btnClasses = `${classes["add-movie__button"]} ${
