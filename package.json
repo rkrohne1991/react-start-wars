@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "React Front-End Test",
   "main": "index.js",
+  "homepage": "https://rkrohne1991.github.io/react-start-wars/",
   "repository": "https://github.com/rkrohne1991/react-start-wars.git",
   "author": "Rafal Krohne <rafal.krohne@hotmail.co.uk>",
   "license": "MIT",
   "private": true,
   "scripts": {
+    "deploy": "gh-pages -d build",
     "test": "jest",
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
@@ -19,6 +21,7 @@
     "@testing-library/user-event": "^12.5.0",
     "apollo-link-rest": "^0.9.0-rc.1",
     "bootstrap": "5.1.3",
+    "gh-pages": "^3.2.3",
     "graphql": "^16.2.0",
     "graphql-anywhere": "^4.2.7",
     "graphql-tag": "^2.12.6",
