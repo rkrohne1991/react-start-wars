@@ -1,9 +1,40 @@
-import React, { useState, useRef } from "react";
-import { gql, useQuery } from "@apollo/client";
+import React from "react";
+// import { gql, useQuery } from "@apollo/client";
 
 import classes from "./AddMovieContent.module.scss";
 import useInput from "../../hooks/use-input";
 import newId from "../../utils/new-id";
+
+// function not working
+// it suppose to get the results on input change
+// display the dropdown and show the results
+// hardcoded query on its own is working
+// const searchPlanets = (value) => {
+//   const SEARCH_PLANETS = gql`
+//     query SearchQuery {
+//       search @rest(type: "Planet", path: "planets/?search=${value}}") {
+//         results
+//       }
+//     }
+//   `;
+
+//   const { loading, error, data } = useQuery(SEARCH_PLANETS);
+
+//   if (error) {
+//     //to do: display search error
+//   }
+
+//   if (
+//     !loading &&
+//     !error &&
+//     data &&
+//     data.planets &&
+//     data.planets.results
+//   ) {
+//     // display no results if results = 0
+//     // take all results and add to array
+//   }
+// };
 
 const titleValidation = (value) => {
   if (value.trim().length >= 3) {
@@ -14,31 +45,6 @@ const titleValidation = (value) => {
 const isNotEmpty = (value) => value.trim().length > 0;
 
 const AddMovieContent = (props) => {
-  // const GET_PLANETS = gql`
-  //   query GetPlanets {
-  //     planets @rest(type: "Planet", path: "planets") {
-  //       results
-  //     }
-  //   }
-  // `;
-
-  // const { loading, error, data } = useQuery(GET_PLANETS);
-
-  // if (error) {
-  // to do: hide the form and display the error
-  // }
-
-  // if (
-  //   !loading &&
-  //   !error &&
-  //   data &&
-  //   data.planets &&
-  //   data.planets.results &&
-  //   data.planets.results.length > 0
-  // ) {
-  //   console.log(data.planets.results);
-  // }
-
   const {
     value: movieTitleValue,
     isValid: movieTitleIsValid,

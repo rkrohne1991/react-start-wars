@@ -39,7 +39,6 @@ const Content = () => {
   } else {
     const storage = localStorage.getItem("Movies");
     const jsonObject = JSON.parse(storage);
-    // console.log(jsonObject);
 
     return <MoviesList films={jsonObject} />;
   }

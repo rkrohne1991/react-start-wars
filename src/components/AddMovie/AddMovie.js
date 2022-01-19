@@ -34,14 +34,11 @@ const AddMovie = (props) => {
             />
           </button>
         </div>
-        {/* {contentIsActive && (
+        {contentIsActive && (
           <div className={classes["add-movie__content"]}>
             <AddMovieContent onAddMovie={addMovieHandler} />
           </div>
-        )} */}
-        <div className={classes["add-movie__content"]}>
-          <AddMovieContent onAddMovie={addMovieHandler} />
-        </div>
+        )}
       </div>
     </section>
   );
