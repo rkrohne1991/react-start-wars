@@ -9,14 +9,24 @@ $desktop: 769px;
     @media screen and (min-width: $desktop) {
         padding-top: 32px;
     }
-}
 
-.logo {
-    max-width: 222px;
-    width: 100%;
+    img {
+        max-width: 222px;
+        width: 100%;
 
-    @media screen and (min-width: $desktop) {
-        max-width: unset;
-        width: unset;
+        @media screen and (min-width: $desktop) {
+            max-width: unset;
+            width: unset;
+        }
     }
 }
+
+// .logo {
+//     max-width: 222px;
+//     width: 100%;
+
+//     @media screen and (min-width: $desktop) {
+//         max-width: unset;
+//         width: unset;
+//     }
+// }
